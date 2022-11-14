@@ -1,0 +1,1 @@
+{'Debug Log File': '', 'Contempt': 0, 'Min Split Depth': 0, 'Ponder': 'false', 'MultiPV': 1, 'Skill Level': 20, 'Move Overhead': 10, 'Minimum Thinking Time': 20, 'Slow Mover': 100, 'UCI_Chess960': 'false', 'UCI_LimitStrength': 'false', 'UCI_Elo': 1350, 'Threads': 1, 'Hash': 16}
