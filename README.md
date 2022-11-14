@@ -5,11 +5,8 @@ The wrapper is based on the python package [stockfish](https://github.com/zhelya
 The view is developped using my pygame-toolkit, helping to create gui-like views in pygame.
 
 # Cloning
-Since Stockfish is recursively cloned in the repository, clone the project as follows:
-```
-git clone --recursive https://github.com/Hardcode3/PythonChess.git
-```
-This command will also clone the Stockfish repository from GitHub so you don't have to worry about installing it.
+Stockfish is not cloned as a submodule.
+The content of the repository corresponding to the official realease is located under the [chess/external/stockfish path](chess/external/stockfish/).
 
 # Launchin the app
 To run the app, create a virtual environment or pip install the [requirements](requirements.txt).
