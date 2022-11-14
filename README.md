@@ -1,4 +1,5 @@
-# PythonChess ![size](https://img.shields.io/github/repo-size/Hardcode3/PyChess)
+# PythonChess !
+[size](https://img.shields.io/github/repo-size/Hardcode3/PyChess) ![licence](https://img.shields.io/github/license/Hardcode3/PyChess)
 A pygame wrapper for the [stockfish chess engine](https://stockfishchess.org).
 For more details, check their [GitHub repository](https://github.com/official-stockfish/Stockfish).
 The wrapper is based on the python package [stockfish](https://github.com/zhelyabuzhsky/stockfish.git).
