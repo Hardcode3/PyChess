@@ -5,8 +5,12 @@ The wrapper is based on the python package [stockfish](https://github.com/zhelya
 The view is developped using my pygame-toolkit, helping to create gui-like views in pygame.
 
 # Cloning
-Stockfish is not cloned as a submodule.
+Stockfish is not cloned as a submodule, clone it as follows:
+```
+git clone https://github.com/Hardcode3/PyChess.git
+```
 The content of the repository corresponding to the official realease is located under the [chess/external/stockfish path](chess/external/stockfish/).
+Consider checking their [website](https://stockfishchess.org).
 
 # Launchin the app
 To run the app, create a virtual environment or pip install the [requirements](requirements.txt).
@@ -17,12 +21,15 @@ source venv/bin/activate
 ```
 ## To install the dependencies
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 After this step, pip should have installed the dependencies and you should be able to launch the main program using:
 ```
 python3 main.py
 ```
+Note that the [main.py](main.py) file handles the compilation of the [Stockfish](https://stockfishchess.org) code.
+If a stockfish executable is found, skip the compilation process, otherwise compile and download necessary files using the included [Makefile](chess/external/stockfish/src/Makefile).
+The game launches automatically after the process is done.
 
 # Compatibility
 This version is only compatible with UNIX systems for the moment since the script for windows is not yet written.
