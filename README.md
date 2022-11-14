@@ -1,5 +1,9 @@
-# PythonChess !
-[size](https://img.shields.io/github/repo-size/Hardcode3/PyChess) ![licence](https://img.shields.io/github/license/Hardcode3/PyChess)
+# PythonChess
+![size](https://img.shields.io/github/repo-size/Hardcode3/PyChess) 
+![licence](https://img.shields.io/github/license/Hardcode3/PyChess)
+![python version](https://img.shields.io/badge/python-v3.10-yellow)
+![unix support](https://img.shields.io/badge/os-UNIX-green)
+
 A pygame wrapper for the [stockfish chess engine](https://stockfishchess.org).
 For more details, check their [GitHub repository](https://github.com/official-stockfish/Stockfish).
 The wrapper is based on the python package [stockfish](https://github.com/zhelyabuzhsky/stockfish.git).
@@ -13,7 +17,7 @@ git clone https://github.com/Hardcode3/PyChess.git
 The content of the repository corresponding to the official realease is located under the [chess/external/stockfish path](chess/external/stockfish/).
 Consider checking their [website](https://stockfishchess.org).
 
-# Launchin the app
+# Launching the app
 To run the app, create a virtual environment or pip install the [requirements](requirements.txt).
 ## To create and activate a virtual environment on UNIX like systems
 ```
@@ -37,8 +41,10 @@ This version is only compatible with UNIX systems for the moment since the scrip
 [Stockfish for python](https://pypi.org/project/stockfish/) uses the compiled executable file available in [chess/external/src/](chess/external/src) as stockfish).
 
 # Future improvements
-- [ ] Crossplatform app
-- [ ] Automatic configuration and tests of Stockfish and the a app
+- [x] Support for macOS and Linux automatic configuration
+- [ ] Support for Windows automatic configuration
+- [ ] Make the app fully playable
+- [ ] Integration of stockfish tests after the installation process
 
 # Screenshots
 ![Main menu](assets/screenshots/main_menu.png)
