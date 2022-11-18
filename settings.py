@@ -60,14 +60,14 @@ class Settings:
 
     # main window settings
     WINDOW_TITLE: str = "Chess"
-    WINDOW_SIZE: int = 600
-    GAP: int = WINDOW_SIZE / 6
-    BORDER_SIZE: int = 10
+    WINDOW_SIZE: int = 650
+    GAP: int = WINDOW_SIZE / 10
+    BORDER_SIZE: int = 5
 
     # chessboard settings
     CHESS_BOARD_SIZE: int = WINDOW_SIZE - 2 * GAP
     CELL_SIZE: int = CHESS_BOARD_SIZE / 8
-    PAWN_SIZE: int = CELL_SIZE * .7
+    PAWN_SIZE: int = CELL_SIZE * .9
     CELL_GAP: int = (CELL_SIZE - PAWN_SIZE) / 2
     LEGAL_CELL_INDICATOR_RADIUS: int = 5
 
@@ -77,7 +77,7 @@ class Settings:
     DELETED_PAWNS_SIZE: int = .6 * CELL_SIZE
     DELETED_PAWNS_SURFACE_COLOR: Tuple[int, int, int] = Colors.LIGHT_GREY
 
-    LEGAL_CELL_INDICATOR_COLOR: Tuple[int, int, int] = Colors.PURPLE
+    LEGAL_CELL_INDICATOR_COLOR: Tuple[int, int, int] = Colors.RED
     BORDER_COLOR: Tuple[int, int, int] = Colors.BLACK
     CELL_COLOR1: Tuple[int, int, int] = Colors.WHITE
     CELL_COLOR2: Tuple[int, int, int] = Colors.GREY

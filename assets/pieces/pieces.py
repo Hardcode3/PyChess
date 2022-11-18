@@ -20,7 +20,9 @@ class PiecesData:
     POSSIBLE_PIECES = ["r", "n", "b", "q", "k", "p", "R", "N", "B", "Q", "K", "P"]
 
 
-PIECES_PATH: str = os.path.join(Directories.ROOT_DIR, "assets/pieces/default")
+# PIECES_PATH: str = os.path.join(Directories.ROOT_DIR, "assets/pieces/default")
+PIECES_PATH: str = os.path.join(Directories.ROOT_DIR, "assets/pieces/simple")
+
 PIECES_RASTER_DICT: dict = {
     "r": os.path.join(PIECES_PATH, "rb.png"),
     "n": os.path.join(PIECES_PATH, "nb.png"),
