@@ -32,6 +32,7 @@ class Colors:
     """
     Dataclass containing the colors for pygame.
     """
+
     WHITE: tuple = (255, 255, 255)
     BLACK: tuple = (0, 0, 0)
     GREY: tuple = (169, 169, 169)
@@ -48,6 +49,7 @@ class Settings:
     """
     Dataclass containing the settings of the project.
     """
+
     # game mode (by default, the computer plays automatically)
     IS_COMPUTER_OPPONENT: bool = True
     # the highest the top move's, the highest the chance for the bot to make errors
@@ -67,14 +69,14 @@ class Settings:
     # chessboard settings
     CHESS_BOARD_SIZE: int = WINDOW_SIZE - 2 * GAP
     CELL_SIZE: int = CHESS_BOARD_SIZE / 8
-    PAWN_SIZE: int = CELL_SIZE * .9
+    PAWN_SIZE: int = CELL_SIZE * 0.9
     CELL_GAP: int = (CELL_SIZE - PAWN_SIZE) / 2
     LEGAL_CELL_INDICATOR_RADIUS: int = 5
 
     # the deleted pawns have the following settings
-    DELETED_PAWNS_ME_POS: tuple = .1 * WINDOW_SIZE, .9 * WINDOW_SIZE
-    DELETED_PAWNS_OPONENT_POS: tuple = .1 * WINDOW_SIZE, .05 * WINDOW_SIZE
-    DELETED_PAWNS_SIZE: int = .6 * CELL_SIZE
+    DELETED_PAWNS_ME_POS: tuple = 0.1 * WINDOW_SIZE, 0.9 * WINDOW_SIZE
+    DELETED_PAWNS_OPONENT_POS: tuple = 0.1 * WINDOW_SIZE, 0.05 * WINDOW_SIZE
+    DELETED_PAWNS_SIZE: int = 0.6 * CELL_SIZE
     DELETED_PAWNS_SURFACE_COLOR: Tuple[int, int, int] = Colors.LIGHT_GREY
 
     LEGAL_CELL_INDICATOR_COLOR: Tuple[int, int, int] = Colors.RED
@@ -103,4 +105,6 @@ class Fonts:
     Font = pygame.font.SysFont
     HERCULANUM: str = os.path.join(Directories.ASSETS_DIR, "fonts/Herculanum.ttf")
     COMIC_SANS_MS: str = os.path.join(Directories.ASSETS_DIR, "fonts/Comic Sans MS.ttf")
-    COMIC_SANS_MS_BOLD: str = os.path.join(Directories.ASSETS_DIR, "fonts/Comic Sans MS Bold.ttf")
+    COMIC_SANS_MS_BOLD: str = os.path.join(
+        Directories.ASSETS_DIR, "fonts/Comic Sans MS Bold.ttf"
+    )

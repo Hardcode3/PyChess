@@ -24,6 +24,11 @@ To run the app, create a virtual environment or pip install the [requirements](r
 python3 -m venv venv
 source venv/bin/activate
 ```
+## To create and activate a virtual environment on Windows systems
+```
+python3 -m venv venv
+.\venv\Scripts\activate
+```
 ## To install the dependencies
 ```
 pip install -r requirements.txt
@@ -32,19 +37,19 @@ After this step, pip should have installed the dependencies and you should be ab
 ```
 python3 main.py
 ```
-Note that the [main.py](main.py) file handles the compilation of the [Stockfish](https://stockfishchess.org) code.
-If a stockfish executable is found, skip the compilation process, otherwise compile and download necessary files using the included [Makefile](chess/external/stockfish/src/Makefile).
+Note that the [main.py](main.py) file handles the compilation of the [Stockfish](https://stockfishchess.org) code for UNIX systems. For windows systems, it downloads the latest binaries and extract it.
+If a stockfish executable is found, skips the compilation process, otherwise compiles and download necessary files using the included [Makefile](chess/external/stockfish/src/Makefile).
 The game launches automatically after the process is done.
 
 # Compatibility
-This version is only compatible with UNIX systems for the moment since the script for windows is not yet written.
+This version is compatible with UNIX systems and now with Windows ones.
+Just launch the main file and python does it for you.
 [Stockfish for python](https://pypi.org/project/stockfish/) uses the compiled executable file available in [chess/external/src/](chess/external/src) as stockfish).
 
 # Future improvements
 - [x] Support for macOS and Linux automatic configuration
-- [ ] Support for Windows automatic configuration
+- [x] Support for Windows automatic configuration
 - [ ] Make the app fully playable
-- [ ] Integration of stockfish tests after the installation process
 
 # Screenshots
 ![Main menu](assets/screenshots/main_menu.png)

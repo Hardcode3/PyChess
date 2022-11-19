@@ -5,46 +5,28 @@ from random import randint
 import pygame.display
 from stockfish import Stockfish
 from setup import compile_stockfish
-from pygame.locals import (
-    MOUSEBUTTONDOWN,
-    K_r,
-    K_ESCAPE
-)
-from settings import (
-    Settings,
-    Directories,
-    Colors
-)
+from pygame.locals import MOUSEBUTTONDOWN, K_r, K_ESCAPE
+from settings import Settings, Directories, Colors
+
 # ASSETS directory
 from assets.sounds.sounds import play_sound
 
 # CHESS.ENGINE directory
 from chess.engine.datum_change import convert_datum
-from chess.engine.fen import (
-    get_legal_moves,
-    ForsythEdwardsNotation
-)
+from chess.engine.fen import get_legal_moves, ForsythEdwardsNotation
+
 # CHESS.VIEW
 from chess.view.board_view import (
     draw_contour,
     draw_empty_board,
     blit_board,
-    draw_legal_moves
+    draw_legal_moves,
 )
-from chess.view.input_handling import (
-    find_cell_from_mouse_pos,
-    is_valid_selection
-)
-from chess.view.views import (
-    SplashScreen,
-    SettingsMenu,
-    SaveMenu
-)
+from chess.view.input_handling import find_cell_from_mouse_pos, is_valid_selection
+from chess.view.views import SplashScreen, SettingsMenu, SaveMenu
 from chess.pygame_toolkit.menus import Menu
 from chess.view.pawns_view import draw_pieces
-from chess.save.save import (
-    Save
-)
+from chess.save.save import Save
 
 
 class Game:
@@ -62,16 +44,25 @@ class Game:
         self._is_white_turn: bool = True
         self.playing_: bool = False
 
-        self.display_ = pygame.display.set_mode((Settings.WINDOW_SIZE, Settings.WINDOW_SIZE))
+        self.display_ = pygame.display.set_mode(
+            (Settings.WINDOW_SIZE, Settings.WINDOW_SIZE)
+        )
         pygame.display.set_caption(Settings.WINDOW_TITLE)
-        pygame.display.set_icon(pygame.image.load(os.path.join(Directories.ASSETS_DIR, "game_icon/game_icon.png")))
+        pygame.display.set_icon(
+            pygame.image.load(
+                os.path.join(Directories.ASSETS_DIR, "game_icon/game_icon.png")
+            )
+        )
 
         # setting up the different views of the game
         self.splash_screen_view_ = SplashScreen(self.display_)
         self.settings_screen_view_ = SettingsMenu(self.display_)
         self.save_screen_view_ = SaveMenu(self.display_)
         self.end_screen_view_ = Menu(self.display_)
-        self.saves_ = [Save(f"save_{i}.txt", absolute_path=False) for i in range(Settings.SAVE_NUMBER)]
+        self.saves_ = [
+            Save(f"save_{i}.txt", absolute_path=False)
+            for i in range(Settings.SAVE_NUMBER)
+        ]
         self.configure_engine_parameters()
         self.configure_callbacks()
         self.splash_screen_view_.run()
@@ -91,10 +82,14 @@ class Game:
         self.splash_screen_view_.get_entity(1).set_callback(self.run_game)
         self.splash_screen_view_.get_entity(3).set_callback(self.save_screen_view_.run)
         self.splash_screen_view_.get_entity(2).set_callback(self.new_game)
-        self.splash_screen_view_.get_entity(4).set_callback(self.settings_screen_view_.run)
+        self.splash_screen_view_.get_entity(4).set_callback(
+            self.settings_screen_view_.run
+        )
         self.splash_screen_view_.get_entity(5).set_callback(self.close)
         # settings screen
-        self.settings_screen_view_.get_entity(6).set_callback(self.splash_screen_view_.run)
+        self.settings_screen_view_.get_entity(6).set_callback(
+            self.splash_screen_view_.run
+        )
         # save screen
         self.save_screen_view_.get_entity(2).set_callback(self.load_save, args=0)
         self.save_screen_view_.get_entity(3).set_callback(self.save, args=0)
@@ -154,7 +149,9 @@ class Game:
         if 0 <= save_index <= Settings.SAVE_NUMBER:
             self.saves_[save_index].write_save(self.game_engine_.get_fen_position())
         else:
-            raise ValueError(f"Save index {save_index} is out of bounds [0, {Settings.SAVE_NUMBER}]")
+            raise ValueError(
+                f"Save index {save_index} is out of bounds [0, {Settings.SAVE_NUMBER}]"
+            )
 
     def load_save(self, save_index: int) -> None:
         if 0 <= save_index <= Settings.SAVE_NUMBER:
@@ -162,7 +159,9 @@ class Game:
             self.game_engine_.set_fen_position(save)
             self.run_game()
         else:
-            raise ValueError(f"Save index {save_index} is out of bounds [0, {Settings.SAVE_NUMBER}]")
+            raise ValueError(
+                f"Save index {save_index} is out of bounds [0, {Settings.SAVE_NUMBER}]"
+            )
 
     def save_engine_parameters(self) -> None:
         self.configure_engine_parameters()
@@ -175,8 +174,13 @@ class Game:
             self.game_engine_.update_engine_parameters(params)
 
     def set_engine_param_to(self, engine_param: str, value: int | str) -> None:
-        if engine_param not in self.game_engine_.get_parameters().keys() and not isinstance(engine_param, str):
-            raise ValueError(f"Engine parameter in set_engine_param has an incorrect value {engine_param}")
+        if (
+            engine_param not in self.game_engine_.get_parameters().keys()
+            and not isinstance(engine_param, str)
+        ):
+            raise ValueError(
+                f"Engine parameter in set_engine_param has an incorrect value {engine_param}"
+            )
         else:
             params = self.game_engine_.get_parameters()[engine_param] = value
             # self.game_engine_.update_engine_parameters(params)
@@ -246,7 +250,10 @@ class Game:
         """
         Exit the game if the half_move clock is reached.
         """
-        if ForsythEdwardsNotation(self.game_engine_.get_fen_position()).half_move_clock == 50:
+        if (
+            ForsythEdwardsNotation(self.game_engine_.get_fen_position()).half_move_clock
+            == 50
+        ):
             self.run_ = False
 
     def end_game(self):
@@ -276,7 +283,7 @@ class Game:
         Get the turn as a boolean by modifying the respective attribute
         """
         fen = ForsythEdwardsNotation(self.game_engine_.get_fen_position()).active_color
-        if fen == 'b':
+        if fen == "b":
             self._is_white_turn = False
         else:
             self._is_white_turn = True
@@ -296,5 +303,5 @@ class Game:
                 timer = time.time()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main_view = Game()
