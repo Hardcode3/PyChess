@@ -1,7 +1,7 @@
 # PythonChess
 ![size](https://img.shields.io/github/repo-size/Hardcode3/PyChess) 
 ![licence](https://img.shields.io/github/license/Hardcode3/PyChess)
-![python version](https://img.shields.io/badge/python-v3.10-yellow)
+![python version](https://img.shields.io/badge/python-v3.10-blue)
 ![unix support](https://img.shields.io/badge/os-UNIX-green)
 
 A pygame wrapper for the [stockfish chess engine](https://stockfishchess.org).
