@@ -1,7 +1,7 @@
 /chess/save/save_file.txt
 
 *.exp
-chess/logs/*.txt
+chess/logs/log*.txt
 chess/view/trash
 chess/save_[0-3]/save.txt
 

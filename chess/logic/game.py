@@ -165,6 +165,8 @@ class Game:
         @brief writes the log of the current game in a new text file located in chess/logs
         """
         date_n_time = time.ctime().replace(" ", "-").replace(":", "_")
+        if not os.path.exists(Directories.LOGS):
+            os.system(f"mkdir {Directories.LOGS}")
         with open(os.path.join(Directories.LOGS, f"log_{date_n_time}.txt"), "w") as log:
             log.write(self.log_)
 
