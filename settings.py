@@ -18,6 +18,7 @@ class Directories:
     ENGINE_DIR: str = os.path.join(CHESS_DIR, "engine")
     SAVE_DIR: str = os.path.join(CHESS_DIR, "save")
     EXTERNAL_DEPS: str = os.path.join(CHESS_DIR, "external")
+    LOGS: str = os.path.join(CHESS_DIR, "logs")
 
     UNIX_CONFIG_SCRIPT: str = os.path.join(EXTERNAL_DEPS, "unix_compile_stockfish.sh")
     STOCKFISH_DIR: str = os.path.join(EXTERNAL_DEPS, "Stockfish")

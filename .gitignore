@@ -1,6 +1,9 @@
 /chess/save/save_file.txt
 
 *.exp
+chess/logs/
+chess/view/trash
+chess/save/*.txt
 
 Pull requests
 Issues
