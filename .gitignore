@@ -3,7 +3,7 @@
 *.exp
 chess/logs/*.txt
 chess/view/trash
-chess/save/*.txt
+chess/save_[0-3]/save.txt
 
 Pull requests
 Issues
