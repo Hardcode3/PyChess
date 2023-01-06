@@ -71,6 +71,44 @@ def compile_stockfish() -> bool:
                 raise PermissionError(
                     "You do not have the access rights to compile to this directory"
                 )
+    
+    # setup for Linux
+    elif platform.system() == "Linux":
+        print("Linux platform detected")
+        stockfish_linux_url = (
+            "https://stockfishchess.org/files/stockfish_15.1_linux_x64.zip"
+        )
+
+        try:
+            # make a request and save the content to the sockfish folder
+            output_zip_file = os.path.join(
+                Directories.STOCKFISH_DIR, "src/stockfish_15.1_linux_x64.zip"
+            )
+            if not os.path.exists(output_zip_file):
+                print(f"downloading stockfish executable from {stockfish_win_url}")
+                r = requests.get(stockfish_linux_url, allow_redirects=False)
+                open(output_zip_file, "wb").write(r._content)
+            else:
+                print("existing stockfish zip file for linux found")
+
+            executable_path: str = os.path.join(Directories.STOCKFISH_DIR, "src\stockfish_15.1_linux_x64\stockfish-ubuntu-20.04-x86-64")
+            # extract the zipped file
+            if not os.path.exists(executable_path):
+                print("extracting stockfish executable...")
+                with zipfile.ZipFile(output_zip_file, "r") as zipped:
+                    zipped.extractall(os.path.join(Directories.STOCKFISH_DIR, "src"))
+            else:
+                print("existing stockfish executable for linux found")
+                
+            # saving the path of the stockfish executable
+            Directories.STOCKFISH_EXECUTABLE = executable_path
+            
+            print("** stockfish is installed for linux 64 bits **")
+            return True
+
+        except:
+            return False
+            
     else:
         raise OSError("Invalid operating system")
 
