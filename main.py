@@ -1,6 +1,5 @@
 from setup import compile_stockfish
 from chess.logic.game import Game
-from settings import Directories
 
 if __name__ == '__main__':
     if not compile_stockfish():
