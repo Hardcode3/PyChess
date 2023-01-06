@@ -21,7 +21,7 @@ class Directories:
     LOGS: str = os.path.join(CHESS_DIR, "logs")
 
     UNIX_CONFIG_SCRIPT: str = os.path.join(EXTERNAL_DEPS, "unix_compile_stockfish.sh")
-    STOCKFISH_DIR: str = os.path.join(EXTERNAL_DEPS, "Stockfish")
+    STOCKFISH_DIR: str = os.path.join(EXTERNAL_DEPS, "stockfish")
     STOCKFISH_MAKEFILE: str = os.path.join(os.path.join(STOCKFISH_DIR, "src/Makefile"))
     STOCKFISH_EXECUTABLE: str = os.path.join(STOCKFISH_DIR, "src/stockfish")
 

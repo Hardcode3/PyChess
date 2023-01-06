@@ -71,6 +71,32 @@ def compile_stockfish() -> bool:
                 raise PermissionError(
                     "You do not have the access rights to compile to this directory"
                 )
+    
+    # setup for Linux
+    elif platform.system() == "Linux":
+        print("Linux platform detected")
+        if not os.path.exists(Directories.STOCKFISH_MAKEFILE):
+            raise RuntimeError(
+                "--> The Makefile script is missing, build stockfish manually in the src directory"
+            )
+        else:
+            print(
+                f"Stockfish Makefile found in {Directories.STOCKFISH_MAKEFILE}, compiling the code..."
+            )
+            try:
+                os.system(f"sh {Directories.UNIX_CONFIG_SCRIPT}")
+                if not os.path.exists(Directories.CHESS_DIR):
+                    raise RuntimeError(
+                        "The compilation of the stockfish engine binaries has failed, consider doing"
+                        "it manually"
+                    )
+                else:
+                    return True
+            except PermissionError:
+                raise PermissionError(
+                    "You do not have the access rights to compile to this directory"
+                )
+
     else:
         raise OSError("Invalid operating system")
 

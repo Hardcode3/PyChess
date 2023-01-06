@@ -5,7 +5,8 @@ echo "Found unix script..."
 echo "Current directory", "$(pwd)"
 
 echo "Changing directory to the Stockfish subpackage..."
-cd chess/external/Stockfish/src || echo "cd failed, check the structure of the project"
+cd chess/external/stockfish/src || echo "cd failed, check the structure of the project"
+echo "Current directory", "$(pwd)"
 
 STOCKFISH=stockfish
 
