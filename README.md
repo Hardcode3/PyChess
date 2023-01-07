@@ -2,7 +2,7 @@
 ![size](https://img.shields.io/github/repo-size/Hardcode3/PyChess) 
 ![licence](https://img.shields.io/github/license/Hardcode3/PyChess)
 ![python version](https://img.shields.io/badge/python-v3.10-blue)
-![unix support](https://img.shields.io/badge/os-UNIX-green)
+![os support](https://img.shields.io/badge/Windows|Linux|MacOS-blue)
 
 A pygame wrapper for the [stockfish chess engine](https://stockfishchess.org).
 For more details, check their [GitHub repository](https://github.com/official-stockfish/Stockfish).
@@ -33,6 +33,14 @@ python3 -m venv venv
 ```
 pip install -r requirements.txt
 ```
+
+If the [requirements.txt](requirements.txt) installation process fails, then try to install pygame in the virtual environment using the last dev version by manually typing:
+The version used in the requirements file is indeed not compatible with python 3.11, but the dev version fixes the problem.
+
+```
+pip install pygame --pre
+```
+
 After this step, pip should have installed the dependencies and you should be able to launch the main program using:
 ```
 python3 main.py
@@ -45,11 +53,6 @@ The game launches automatically after the process is done.
 This version is compatible with UNIX systems and now with Windows ones.
 Just launch the main file and python does it for you.
 [Stockfish for python](https://pypi.org/project/stockfish/) uses the compiled executable file available in [chess/external/src/](chess/external/src) as stockfish).
-
-# Future improvements
-- [x] Support for macOS and Linux automatic configuration
-- [x] Support for Windows automatic configuration
-- [ ] Make the app fully playable
 
 # Screenshots
 ![Main menu](assets/screenshots/main_menu.png)
