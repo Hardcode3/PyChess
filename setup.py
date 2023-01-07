@@ -14,13 +14,13 @@ def compile_stockfish() -> bool:
     if platform.system() == "Windows":
         print("WINDOWS platform detected")
         stockfish_win_url = (
-            "https://stockfishchess.org/files/stockfish_15_win_x64_avx2.zip"
+            "https://stockfishchess.org/files/stockfish_15.1_win_x64_popcnt.zip"
         )
 
         try:
             # make a request and save the content to the sockfish folder
             output_zip_file = os.path.join(
-                Directories.STOCKFISH_DIR, "src/stockfish_15_win_x64_avx2.zip"
+                Directories.STOCKFISH_DIR, "src/stockfish_15.1_win_x64_popcnt.zip"
             )
             if not os.path.exists(output_zip_file):
                 print(f"downloading stockfish executable from {stockfish_win_url}")
@@ -29,7 +29,7 @@ def compile_stockfish() -> bool:
             else:
                 print("existing stockfish zip file for windows found")
 
-            executable_path: str = os.path.join(Directories.STOCKFISH_DIR, "src\stockfish_15_win_x64_avx2\stockfish_15_x64_avx2.exe")
+            executable_path: str = os.path.join(Directories.STOCKFISH_DIR, "src\stockfish_15.1_win_x64_popcnt\stockfish-windows-2022-x86-64-modern.exe")
             # extract the zipped file
             if not os.path.exists(executable_path):
                 print("extracting stockfish executable...")
@@ -41,7 +41,7 @@ def compile_stockfish() -> bool:
             # saving the path of the stockfish executable
             Directories.STOCKFISH_EXECUTABLE = executable_path
             
-            print("** stockfish is installed for windows 64 bits **")
+            print("** stockfish is installed for windows x86-64 bits **")
             return True
 
         except:
